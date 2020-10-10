@@ -35,7 +35,7 @@ def insertion_sort(a: List[int]) -> NoReturn:
 
 
 def return_rarray(_min=1, _max=10, size=5, duplicates=False) -> List[int]:
-    '''
+    """
     Returns array of random elements [x0, x1, ..., xn]
     for each element in the range (_min >= x >= _max).
     Where the number of elements equals parameter -> size.
@@ -49,7 +49,9 @@ def return_rarray(_min=1, _max=10, size=5, duplicates=False) -> List[int]:
     :param: duplicates -- boolean
         if True, elements of equal value may be generated otherwise
         all elements are unique
-    '''
+        
+    """
+    
     if (duplicates):
         rv = []
         for i in range(size): rv.append(randint(_min, _max))
@@ -72,6 +74,7 @@ def insertion_sort_test(a: List[int]) -> NoReturn:
     Insertion sort with each outer iteration trace stored
     and returned. Used to recreate questions from worksheet.
     """
+    
     traces = []                       # init traces
     traces.append(list_to_string(a))  # append first trace
     for i in range(1, len(a)): 
@@ -88,8 +91,10 @@ def test_recognition(a: List[int], traces=4) -> NoReturn:
 
     Generates a matrix of traces in which only one corresponds
     to the insertion sort -- the user must label the correct
-    trace block. 
+    trace block.
+    
     """
+    
     # Init. answers, obstacles, and pointers for radomization
     actual_traces, random_traces = insertion_sort_test(a), []
     i, i2 = 0, 0
@@ -103,7 +108,7 @@ def test_recognition(a: List[int], traces=4) -> NoReturn:
         trace[0] = actual_traces[0]  # Adds more confusion
         random_traces.append(trace)
         i, i2 = 0, 0
-    ow_ptr = randint(0,traces-1)  # 'ow' -> overwrite
+    ow_ptr = randint(0,traces-1)  # 'ow' -> points to element to 'overwrite'
     random_traces[ow_ptr] = actual_traces
     random_traces[randint(0,traces-1)][1] = actual_traces[1]
     # Print statements ripped from question-1
@@ -139,7 +144,9 @@ def test_traces(a: List[int]) -> int:
     Note: the array of integers are random unique
     values which can be customized see 'return_rarray()'
     for more details.
+    
     """
+    
     # init actual-traces and user-input storage
     actual_traces = insertion_sort_test(a)
     user_inp      = []
@@ -170,7 +177,9 @@ def test_iteration_recognition(a: List[int], iteration=3, lists=5) -> NoReturn:
     The original array is display with others that are not
     the original array. The user must pick out the correct
     array.
+    
     """
+    
     # Init. obstacles, copy of list, and partial sorted version of list
     p_answers = []  # p_answers -> possible answers
     og_list   = a.copy()
@@ -213,6 +222,54 @@ def test_iteration_recognition(a: List[int], iteration=3, lists=5) -> NoReturn:
                 if (pa == og_list): s = s + ' ' + f"[{str(i)}]"
             print(s)
 
+def explain_stability():
+    """
+    Based on ~ CSC2032: Tutorial 1.4.1/2.1.1 ~ Question 4
+
+    The user must type the definition below -- of course as
+    a user you may change the definition typed out. By changing
+    the string below.
+    
+    """
+    
+    a = "If an input list contains two equal elements in positions \
+    i and j where i < j then in the sorted list they have to be in positions \
+    i' and j'"
+    q = 'Enter a short definition for sorting stability below.'
+
+    def mark_continuous(user: List[str], actual: List[str]) -> int:
+        '''
+        :return: mark int, counted for each matching word
+                 where exact order matters
+        :param:  user   -- the user's answer
+        :param:  actual -- the actual answer
+        '''
+        mark = 0
+        for words in zip(user, actual):
+            if (words[0].lower() != words[1]): return mark
+            mark += 1
+        return mark
+
+    def mark_matches(user: List[str], actual: List[str]) -> int:
+        """
+        :return: mark counted for each matching word 
+        :param:  user   -- the user's answer
+        :param:  actual -- the actual answer
+        """
+        mark = 0
+        for words in zip(user, actual):
+            if (words[0] == words[1]): mark += 1
+        return mark
+
+    answer = [word.lower() for word in a.split()]
+    print('Question: ' + q)  # Print question
+    user_inp = str(input("Answer  : ")).split()
+    # Marking occurs
+    print(f"<Mark_C = {mark_continuous(user_inp, answer)}/{len(answer)}>")
+    print(f"<Mark_M = {mark_matches(user_inp, answer)}/{len(answer)}>")
+    print(f"<Answer = {a}>\n")
+
+
 def main():
     ''' Examples '''
     #reference_example = [2, 8, 5, 3, 9, 4]
@@ -223,10 +280,11 @@ def main():
     ''' Testing '''
     questions = {1: test_recognition,
                  2: test_traces,
-                 3: test_iteration_recognition}
+                 3: test_iteration_recognition,
+                 4: explain_stability}
     while True:
         user_inp = ''
-        q = randint(1, 3)
+        q = randint(1, 4)
         if (q == 3): questions.get(q)(return_rarray(size=7))
         else: questions.get(q)(return_rarray())
         while (user_inp != 'y' and user_inp != 'n'):
