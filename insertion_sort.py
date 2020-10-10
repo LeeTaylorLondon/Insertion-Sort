@@ -118,7 +118,11 @@ def test_recognition(a: List[int], traces=4) -> NoReturn:
         print()
     # User input | answer = ow_ptr + 1
     print('Which trace above corresponds to insertion sort?')
-    ua = int(input("Enter number of trace: "))
+    try:
+        ua = int(input("Enter number of trace: "))
+    except ValueError:
+        print('\n<Invalid input - question exited>\n')
+        return
     if (ua == ow_ptr + 1): print('<Answer: Correct!>\n')
     else:
         print('<Answer: Incorrect ._. >\n')
@@ -189,7 +193,11 @@ def test_iteration_recognition(a: List[int], iteration=3, lists=5) -> NoReturn:
     print('array insertion sort was applied to.\n')
     for i,vec in enumerate(p_answers): print(f"[{i+1}] {list_to_string(vec)}")
     # User input is taken and evaluated
-    user_inp = int(input('\nEnter the number of any correct array: '))
+    try:
+        user_inp = int(input('\nEnter the number of any correct array: '))
+    except ValueError:
+        print('\n<Invalid input - question exited>\n')
+        return
     try:
         if (p_answers[user_inp-1] == og_list): print('<Answer: Correct!>\n')
         else:
