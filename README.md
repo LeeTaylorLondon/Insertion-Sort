@@ -1,7 +1,6 @@
 # Insertion-Sort
 ### Synopsis
-I am required to learn insertion sort - a worksheet of just a few questions was released - I made this program to test the exact same questions  
-but instead with lists of randomly generated integer values.  
+I am required to learn insertion sort - a worksheet of just a few questions was released - I made this program to test the exact same questions but instead with lists of randomly generated integer values.  
 
 ### How to Use - Entry Point
 Simply download, fork, or copy and paste the contents of the file and run. The program is set to infinitely ask random questions.  
