@@ -45,19 +45,7 @@ Note: there are three types of questions.
     1 2 5 9 10
     1 2 5 9 10
 
-    Trace [3]
-    2 1 9 5 10
-    2 5 1 9 10
-    1 2 5 9 10
-    1 2 5 9 10
-    1 2 5 9 10
-
-    Trace [4]
-    2 1 9 5 10
-    2 9 5 1 10
-    2 5 9 1 10
-    1 2 5 9 10
-    1 2 5 9 10
+    >>> ... (Omitted trace 3 & 4 only in README.md for better reading)
 
     Which trace above corresponds to insertion sort?
     Enter number of trace: 
@@ -83,4 +71,18 @@ Note: there are three types of questions.
 
     Enter the number of any correct array: 
 
+#### 4) Explain Stability (Stored definition can be modified)
+
+    Question: Enter a short definition for sorting stability below.
+    Answer  : 
     
+    >>> User should enter stored definition for stability (below)
+    >>> " if an input list contains two equal elements in positions 
+    >>> i and j where i < j then in the sorted list they have to 
+    >>> be in positions i' and j' "
+    
+    Question: Enter a short definition for sorting stability below.
+    Answer  : if an input list contains two equal elements in positions i and j where i < j then in the sorted list they have to be in positions i' and j'
+    <Mark_C = 31/31>
+    <Mark_M = 31/31>
+    <Answer = If an input list contains two equal elements in positions     i and j where i < j then in the sorted list they have to be in positions     i' and j'>
