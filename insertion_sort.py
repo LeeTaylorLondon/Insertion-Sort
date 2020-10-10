@@ -152,7 +152,7 @@ def test_traces(a: List[int]) -> int:
     user_inp      = []
     user_inp.append(actual_traces[0])
     # First trace is always the original list
-    print('Give a high-level trace of applying insertion sort to the array given below.')
+    print('\nGive a high-level trace of applying insertion sort to the array given below.')
     print("First trace :", actual_traces[0])
     # Take user input for each trace
     for p in range(1, len(actual_traces)):
@@ -222,7 +222,7 @@ def test_iteration_recognition(a: List[int], iteration=3, lists=5) -> NoReturn:
                 if (pa == og_list): s = s + ' ' + f"[{str(i)}]"
             print(s)
 
-def explain_stability():
+def explain_stability(*args):
     """
     Based on ~ CSC2032: Tutorial 1.4.1/2.1.1 ~ Question 4
 
@@ -262,7 +262,7 @@ def explain_stability():
         return mark
 
     answer = [word.lower() for word in a.split()]
-    print('Question: ' + q)  # Print question
+    print('\nQuestion: ' + q)  # Print question
     user_inp = str(input("Answer  : ")).split()
     # Marking occurs
     print(f"<Mark_C = {mark_continuous(user_inp, answer)}/{len(answer)}>")
