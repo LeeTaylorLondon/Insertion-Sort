@@ -86,3 +86,10 @@ Note: there are three types of questions.
     <Mark_C = 31/31>
     <Mark_M = 31/31>
     <Answer = If an input list contains two equal elements in positions     i and j where i < j then in the sorted list they have to be in positions     i' and j'>
+    
+## Acknowledgements
+* [Insertion Sort Explanation](https://www.youtube.com/watch?v=JU767SDMDvA) - Pseudo Code
+* [Jason Steggles](https://www.ncl.ac.uk/computing/people/profile/jasonsteggles.html#background) - Author of Questions
+
+## Author
+* Name: __Lee Taylor__
