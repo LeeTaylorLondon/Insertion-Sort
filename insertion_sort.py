@@ -1,3 +1,5 @@
+# Author: Lee Taylor
+
 from random import randint
 from typing import List, NoReturn
 
